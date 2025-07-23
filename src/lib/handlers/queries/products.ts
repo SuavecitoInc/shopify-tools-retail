@@ -11,6 +11,7 @@ const query = `#graphql
         node {
           id
           title
+          templateSuffix
           variants(first: 25) {
             edges {
               node {

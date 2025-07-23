@@ -10,7 +10,7 @@ export type ProductsQueryVariables = AdminTypes.Exact<{
 
 
 export type ProductsQuery = { products: { pageInfo: Pick<AdminTypes.PageInfo, 'endCursor' | 'startCursor' | 'hasNextPage' | 'hasPreviousPage'>, edges: Array<{ node: (
-        Pick<AdminTypes.Product, 'id' | 'title'>
+        Pick<AdminTypes.Product, 'id' | 'title' | 'templateSuffix'>
         & { variants: { edges: Array<{ node: (
               Pick<AdminTypes.ProductVariant, 'id' | 'sku'>
               & { excludeOnline?: AdminTypes.Maybe<Pick<AdminTypes.Metafield, 'id' | 'value'>> }
@@ -18,7 +18,7 @@ export type ProductsQuery = { products: { pageInfo: Pick<AdminTypes.PageInfo, 'e
       ) }> } };
 
 interface GeneratedQueryTypes {
-  "#graphql\n  query products($first: Int = 250, $after: String) {\n    products(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        startCursor\n        hasNextPage\n        hasPreviousPage\n      }\n      edges {\n        node {\n          id\n          title\n          variants(first: 25) {\n            edges {\n              node {\n                id\n                sku\n                excludeOnline: metafield(namespace: \"debut\", key: \"exclude_variant_online\") {\n                  id\n                  value\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": {return: ProductsQuery, variables: ProductsQueryVariables},
+  "#graphql\n  query products($first: Int = 250, $after: String) {\n    products(first: $first, after: $after) {\n      pageInfo {\n        endCursor\n        startCursor\n        hasNextPage\n        hasPreviousPage\n      }\n      edges {\n        node {\n          id\n          title\n          templateSuffix\n          variants(first: 25) {\n            edges {\n              node {\n                id\n                sku\n                excludeOnline: metafield(namespace: \"debut\", key: \"exclude_variant_online\") {\n                  id\n                  value\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n": {return: ProductsQuery, variables: ProductsQueryVariables},
 }
 
 interface GeneratedMutationTypes {
