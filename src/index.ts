@@ -38,6 +38,20 @@ async function getExcludedVariants() {
   return excludedVariants;
 }
 
+function compareWithExcludedList() {
+  const currentlyExcluded = ''.split(', ').filter((sku) => sku.length > 0);
+  if (currentlyExcluded.length === 0) {
+    console.log('No SKUs found in the current exclude list to compare against.');
+    return;
+  }
+  // find the difference, i.e. the SKUs that are in currentlyExcluded but not in excludedVariants
+  const difference = currentlyExcluded.filter((sku) => !excludedVariants.includes(sku));
+  console.log('-----------------------------------------------');
+  console.log('SKUs in the current exclude list but not found as excluded:', difference.length);
+  console.log('-----------------------------------------------');
+  console.log(difference.join(', '));
+}
+
 async function main() {
   const excludedVariants = await getExcludedVariants();
   console.log('-----------------------------------------------');
@@ -47,6 +61,7 @@ async function main() {
   console.log('-----------------------------------------------');
   console.log(excludedVariants.join(', '));
   console.log('-----------------------------------------------');
+  compareWithExcludedList();
 }
 
 main();

@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src/**/*.ts",
     "format": "eslint src/**/*.ts --fix",
-    "exclude-online": "tsx src/index.ts",
+    "excluded-online": "tsx src/index.ts",
     "find-templates": "tsx src/find-templates.ts",
     "generate": "graphql-codegen --config .graphqlrc.ts"
   },
